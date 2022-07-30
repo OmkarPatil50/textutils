@@ -47,6 +47,25 @@ const readingTimeHandler=()=>{
     }
 }
 
+const copyTextHandler=()=>{
+    var copiedText = document.getElementById("exampleFormControlTextarea1")
+   navigator.clipboard.writeText(copiedText.value)
+
+}
+
+const cutTextHandler  = ()=>{
+    let copiedText = document.getElementById("exampleFormControlTextarea1")
+    navigator.clipboard.writeText(copiedText.value)
+    setText("")
+}
+
+
+const removeExtraSpaceHandler=()=>{
+    let newText = text.split(/[ ]+/)
+    setText(newText.join(" "))
+
+}
+
 
 const clearTextHandler =()=>{
     setResult("")
@@ -75,6 +94,9 @@ const clearTextHandler =()=>{
             <button type="button" className="btn btn-secondary mx-3" onClick={wordCountHandler}>Count Words</button>
             <button type="button" className="btn btn-warning mx-3" onClick={characterCountHandler}>Count Characters</button>
             <button type="button" className="btn btn-primary mx-3" onClick={readingTimeHandler}>Measure Reading Time</button>
+            <button type="button" className="btn btn-success mx-3" onClick={copyTextHandler}>Copy Text</button>
+            <button type="button" className="btn btn-light mx-3" onClick={cutTextHandler}>Cut Text</button>
+            <button type="button" className="btn btn-outline-dark" onClick={removeExtraSpaceHandler}>Remove Extra Spaces</button>
             <button type="button" className="btn btn-danger mx-3" onClick={clearTextHandler}>Clear Text</button>
 
 

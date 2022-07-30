@@ -1,4 +1,5 @@
 import React from 'react'
+import DarkMode from './DarkMode'
 
 export default function Header(props) {
   return (
@@ -21,10 +22,12 @@ export default function Header(props) {
         
    
       </ul>
-      <form className="d-flex" role="search">
+
+
+      {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-info" type="submit">Search</button>
-      </form>
+      </form> */}
     </div>
   </div>
 </nav>
