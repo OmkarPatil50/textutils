@@ -11,13 +11,15 @@ function App() {
 
 
 
-const modeHandler= ()=>{
-  if(mode==="light"){
-    setMode("dark")
-  }else{
-    setMode("light")
+  const modeHandler = () => {
+    if (mode === "light") {
+      setMode("dark")
+  
+    } else {
+      setMode("light")
+     
+    }
   }
-}
 
 
 
@@ -26,7 +28,7 @@ const modeHandler= ()=>{
   return (
     <div className="App">
       <Header title="TextUtils" mode={mode} modeHandler={modeHandler} />
-<TextArea />
+      <TextArea mode={mode} />
     </div>
   );
 }

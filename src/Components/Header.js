@@ -31,7 +31,7 @@ export default function Header(props) {
 
 <div className="form-check form-switch">
   <input className="form-check-input" onClick={props.modeHandler} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-  <label className={`form-check-label text-${props.mode==="light"?"dark":"light"}`} htmlFor="flexSwitchCheckDefault">Enable Dark mode</label>
+  <label className={`form-check-label text-${props.mode==="light"?"dark":"light"}`} htmlFor="flexSwitchCheckDefault">Enable {props.mode==="light"?"Dark":"Light"} Mode</label>
 </div>
 
     </div>
