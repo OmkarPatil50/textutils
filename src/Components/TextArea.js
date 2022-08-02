@@ -8,14 +8,27 @@ export default function TextArea(props) {
     const [result, setResult] = useState('')
 
     const upperCaseHandler = () => {
-        const upperCaseText = text.toUpperCase();
-        setText(upperCaseText)
+        if (text) {
+            const upperCaseText = text.toUpperCase();
+            setText(upperCaseText)
+            props.alertHandler("Converted to Upper-Case Successfully!", "success")
+        } else {
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+
+        }
+
     }
 
 
     const lowerCaseHandler = () => {
-        const lowerCaseText = text.toLowerCase()
-        setText(lowerCaseText)
+        if (text) {
+            const lowerCaseText = text.toLowerCase()
+            setText(lowerCaseText)
+            props.alertHandler("Converted to Lower-Case Successfully!", "success")
+        } else {
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+        }
+
     }
 
     const onChangeHandler = (event) => {
@@ -23,46 +36,100 @@ export default function TextArea(props) {
     }
 
     const wordCountHandler = () => {
-        const wordsNumber = text.split(" ").length;
         if (text) {
-            setResult("Number of words: " + wordsNumber)
-
+            const wordsNumber = text.split(" ").length;
+                setResult("Number of words: " + wordsNumber)
+                props.alertHandler("Number of Words Counted Successfully!", "success")
         } else {
-            setResult("Number of words: 0")
+            setResult(null)
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+
         }
+
+
     }
 
     const characterCountHandler = () => {
-        const charactersNUmber = text.length;
-        setResult("Number of Characters: " + charactersNUmber)
+
+        if (text) {
+            const charactersNUmber = text.length;
+            setResult("Number of Characters: " + charactersNUmber)
+            props.alertHandler("Number of Characters Counted Successfully!", "success")
+        } else {
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+
+        }
+
+
+
     }
 
     const readingTimeHandler = () => {
-        const readingTime = (text.split(" ").length * 0.008);
+
         if (text) {
-            setResult("Reading Time Required is approximately " + readingTime + "min.")
+
+            const readingTime = (text.split(" ").length * 0.008);
+   
+                setResult("Reading Time Required is approximately " + readingTime + "min.")
+                props.alertHandler("Reading Time Measured Successfully!", "success")
+
+         
 
         } else {
-            setResult("Please enter text to analyse...!")
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+            setResult(null)
         }
+
+
+
+
     }
 
     const copyTextHandler = () => {
-        var copiedText = document.getElementById("exampleFormControlTextarea1")
-        navigator.clipboard.writeText(copiedText.value)
+
+        if (text) {
+            var copiedText = document.getElementById("exampleFormControlTextarea1")
+            navigator.clipboard.writeText(copiedText.value)
+            props.alertHandler("Text Copied Successfully!", "success")
+        } else {
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+
+        }
+
+
 
     }
 
     const cutTextHandler = () => {
-        let copiedText = document.getElementById("exampleFormControlTextarea1")
-        navigator.clipboard.writeText(copiedText.value)
-        setText("")
+        if (text) {
+
+            let copiedText = document.getElementById("exampleFormControlTextarea1")
+            navigator.clipboard.writeText(copiedText.value)
+            props.alertHandler("Text cut Successful!", "success")
+            setText("")
+        } else {
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+
+        }
+
+
     }
 
 
     const removeExtraSpaceHandler = () => {
-        let newText = text.split(/[ ]+/)
-        setText(newText.join(" "))
+
+        if (text) {
+            let newText = text.split(/[ ]+/)
+            setText(newText.join(" "))
+            props.alertHandler("Extra Spaces Removed Successfully!", "success")
+
+        } else {
+            props.alertHandler("Please Enter Text in Textbox", "danger")
+
+        }
+
+
+
 
     }
 
@@ -70,19 +137,20 @@ export default function TextArea(props) {
     const clearTextHandler = () => {
         setResult("")
         setText("")
+        props.alertHandler("Text Cleared Successfully!", "success")
     }
-    
+
 
 
 
     return (
         <>
-            <div className={`bg-${props.mode==="light"?"light":"dark"}`}>
+            <div className={`bg-${props.mode === "light" ? "light" : "dark"}`}>
 
                 <div className='container '>
                     <div className="form-floating py-5">
                         <div className="mb-3">
-                            <textarea className={`form-control bg-${props.mode==="light"?"light":"dark"} text-${props.mode==="dark"?"light":"dark"}`} required value={text} onChange={onChangeHandler} id="exampleFormControlTextarea1" rows="12" placeholder='Enter Your Text Here'></textarea>
+                            <textarea className={`form-control bg-${props.mode === "light" ? "light" : "dark"} text-${props.mode === "dark" ? "light" : "dark"}`} required value={text} onChange={onChangeHandler} id="exampleFormControlTextarea1" rows="12" placeholder='Enter Your Text Here'></textarea>
                         </div>
 
                     </div>
@@ -97,20 +165,20 @@ export default function TextArea(props) {
                 <button type="button" className="btn btn-primary mx-3" onClick={readingTimeHandler}>Measure Reading Time</button>
                 <button type="button" className="btn btn-success mx-3" onClick={copyTextHandler}>Copy Text</button>
                 <button type="button" className="btn btn-light mx-3" onClick={cutTextHandler}>Cut Text</button>
-                <button type="button" className={`btn btn-${props.mode==="light"?"outline-dark":"outline-light"}`} onClick={removeExtraSpaceHandler}>Remove Extra Spaces</button>
+                <button type="button" className={`btn btn-${props.mode === "light" ? "outline-dark" : "outline-light"}`} onClick={removeExtraSpaceHandler}>Remove Extra Spaces</button>
                 <button type="button" className="btn btn-danger mx-3" onClick={clearTextHandler}>Clear Text</button>
 
 
 
                 <div className="container my-5">
-                    <h3>{result}</h3>
+                    <h3 className={`text-${props.mode === "dark" ? "light" : "dark"} py-4`}>{result}</h3>
                 </div>
 
                 <hr className='my-5 mx-3' />
 
                 <div className="container my-3">
-                    <h2 className={`text-${props.mode==="dark"?"light":"dark"} py-4`}>Preview:</h2>
-                    <p className={`text-${props.mode==="dark"?"light":"dark"} pb-5 `}>{text.length>0?text:"Please Enter Your Text in Textbox to Get Preview"}</p>
+                    <h2 className={`text-${props.mode === "dark" ? "light" : "dark"} py-4`}>Preview:</h2>
+                    <p className={`text-${props.mode === "dark" ? "light" : "dark"} pb-5 `}>{text.length > 0 ? text : "Please Enter Your Text in Textbox to Get Preview"}</p>
                 </div>
 
             </div>
