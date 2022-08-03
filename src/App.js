@@ -4,6 +4,12 @@ import './App.css';
 import Alert from './Components/Alert.js';
 import Header from './Components/Header';
 import TextArea from './Components/TextArea';
+import About from './Components/About.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom"; 
 
 
 function App() {
@@ -44,11 +50,30 @@ const alertHandler =(message,alertType)=>{
 
 
   return (
-    <div className="App">
+
+  <Router>
+
+  
       <Header title="TextUtils" mode={mode} modeHandler={modeHandler} alertHandler={alertHandler} />
       <Alert alertMessage={alertMessage}/>
-      <TextArea mode={mode} alertHandler={alertHandler} />
-    </div>
+      
+ 
+
+
+
+        
+      <Routes>
+
+      <Route path="/" element={<TextArea mode={mode} alertHandler={alertHandler} />}/>
+        <Route index element={<TextArea mode={mode} alertHandler={alertHandler} />} />
+        <Route path="/about" element={<About />}/>
+     
+       
+        </Routes>
+
+
+
+    </Router>
   );
 }
 
