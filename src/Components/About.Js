@@ -5,47 +5,80 @@ function About(props) {
     <div className="container my-5">
 
 
-      <div className="accordion" style={{backgroundColor: props.mode==="light"?"white":"black"}} id="accordionPanelsStayOpenExample">
-        <div className="accordion-item" style={{backgroundColor: props.mode==="light"?"white":"black"}}>
+      <div className="accordion" style={{ backgroundColor: props.mode === "light" ? "white" : "black" }} id="accordionPanelsStayOpenExample">
+        <div className="accordion-item" style={{ backgroundColor: props.mode === "light" ? "white" : "black" }}>
           <h2 className="accordion-header" id="panelsStayOpen-headingOne" >
-            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"  style={{backgroundColor: props.mode==="light"?"white":"black" , color:props.mode==="dark"?"white":"black"}}>
-              Accordion Item #1
+            <button className="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }}>
+              TextUtils App
             </button>
           </h2>
           <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-            <div className="accordion-body" style={{color:props.mode==="dark"?"white":"black"}}>
-              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <div className="accordion-body " style={{ color: props.mode === "dark" ? "white" : "black" }}>
+              <div className="p-3">
+              <strong >This is an app which is built with "React" and is able to do some operations with Text which includes </strong>
+              </div>
+              <ol className="list-group list-group-numbered" >
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Converting text to Uppercase</div>
+                    
+                  </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Converting text to Lowercase</div>
+                    
+                  </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Count Number of Words in Text</div>
+                    
+                  </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Count Number of Characters in Text</div>
+                    
+                  </div>
+                </li>
+              
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Measure Reading Time of Text</div>
+                    
+                  </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Copy Text</div>
+                    
+                  </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Cut Text</div>
+                    
+                  </div>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-start" style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }} >
+                  <div className="ms-2 me-auto">
+                    <div className="fw  ">Remove Extra Spaces in the Text</div>
+                    
+                  </div>
+               </li>
+              </ol>
             </div>
           </div>
         </div>
-        <div className="accordion-item" style={{backgroundColor: props.mode==="light"?"white":"black"}}>
-          <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
-            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"  style={{backgroundColor: props.mode==="light"?"white":"black" , color:props.mode==="dark"?"white":"black"}}>
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-            <div className="accordion-body" style={{color:props.mode==="dark"?"white":"black"}}>
-              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
-        <div className="accordion-item" style={{backgroundColor: props.mode==="light"?"white":"black"}}>
-          <h2 className="accordion-header" id="panelsStayOpen-headingThree">
-            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"  style={{backgroundColor: props.mode==="light"?"white":"black" , color:props.mode==="dark"?"white":"black"}}>
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-            <div className="accordion-body" style={{color:props.mode==="dark"?"white":"black"}}>
-              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-          </div>
-        </div>
+
+
+
       </div>
-
-
     </div>
+
+
+
 
 
 

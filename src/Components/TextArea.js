@@ -145,7 +145,7 @@ export default function TextArea(props) {
 
     return (
         <>
-            <div className={`bg-${props.mode === "light" ? "light" : "dark"}`}>
+            <div style={{ backgroundColor: props.mode === "light" ? "white" : "black", color: props.mode === "dark" ? "white" : "black" }}>
 
                 <div className='container '>
                     <div className="form-floating py-5">
