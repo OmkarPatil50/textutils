@@ -158,15 +158,15 @@ export default function TextArea(props) {
 
 
 
-                <button type="button" className="btn btn-info mx-3" onClick={upperCaseHandler}>Convert to Uppercase</button>
-                <button type="button" className="btn btn-outline-info mx-3" onClick={lowerCaseHandler}>Convert to Lowercase</button>
-                <button type="button" className="btn btn-secondary mx-3" onClick={wordCountHandler}>Count Words</button>
-                <button type="button" className="btn btn-warning mx-3" onClick={characterCountHandler}>Count Characters</button>
-                <button type="button" className="btn btn-primary mx-3" onClick={readingTimeHandler}>Measure Reading Time</button>
-                <button type="button" className="btn btn-success mx-3" onClick={copyTextHandler}>Copy Text</button>
-                <button type="button" className="btn btn-light mx-3" onClick={cutTextHandler}>Cut Text</button>
+                <button type="button" className="btn btn-info mx-3 my-3" onClick={upperCaseHandler}>Convert to Uppercase</button>
+                <button type="button" className="btn btn-outline-info mx-3 my-3" onClick={lowerCaseHandler}>Convert to Lowercase</button>
+                <button type="button" className="btn btn-secondary mx-3 my-3" onClick={wordCountHandler}>Count Words</button>
+                <button type="button" className="btn btn-warning mx-3 my-3" onClick={characterCountHandler}>Count Characters</button>
+                <button type="button" className="btn btn-primary mx-3 my-3" onClick={readingTimeHandler}>Measure Reading Time</button>
+                <button type="button" className="btn btn-success mx-3 my-3" onClick={copyTextHandler}>Copy Text</button>
+                <button type="button" className="btn btn-light mx-3 my-3" onClick={cutTextHandler}>Cut Text</button>
                 <button type="button" className={`btn btn-${props.mode === "light" ? "outline-dark" : "outline-light"}`} onClick={removeExtraSpaceHandler}>Remove Extra Spaces</button>
-                <button type="button" className="btn btn-danger mx-3" onClick={clearTextHandler}>Clear Text</button>
+                <button type="button" className="btn btn-danger mx-3 my-3" onClick={clearTextHandler}>Clear Text</button>
 
 
 
