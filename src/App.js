@@ -37,10 +37,12 @@ const alertHandler =(message,alertType)=>{
   const modeHandler = () => {
     if (mode === "light") {
       setMode("dark")
+      document.body.style.backgroundColor="Black"
       alertHandler("Dark Mode Enabled Successfully","success")
   
     } else {
       setMode("light")
+      document.body.style.backgroundColor="White"
       alertHandler("Light Mode Enabled Successfully","success")
     }
   }
@@ -66,7 +68,7 @@ const alertHandler =(message,alertType)=>{
 
       <Route path="/" element={<TextArea mode={mode} alertHandler={alertHandler} />}/>
         <Route index element={<TextArea mode={mode} alertHandler={alertHandler} />} />
-        <Route path="/about" element={<About />}/>
+        <Route path="/about" element={<About mode={mode} />}/>
      
        
         </Routes>
