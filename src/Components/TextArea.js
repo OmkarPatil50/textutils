@@ -37,7 +37,9 @@ export default function TextArea(props) {
 
     const wordCountHandler = () => {
         if (text) {
-            const wordsNumber = text.split(" ").length;
+            const wordsNumber = text.split(" ").filter((element)=>{
+return element.length!==0
+            }).length;
                 setResult("Number of words: " + wordsNumber)
                 props.alertHandler("Number of Words Counted Successfully!", "success")
         } else {
@@ -52,7 +54,9 @@ export default function TextArea(props) {
     const characterCountHandler = () => {
 
         if (text) {
-            const charactersNUmber = text.length;
+            const charactersNUmber = text.split('').filter((word)=>{
+                return word!==" "
+            }).length;
             setResult("Number of Characters: " + charactersNUmber)
             props.alertHandler("Number of Characters Counted Successfully!", "success")
         } else {
@@ -68,7 +72,9 @@ export default function TextArea(props) {
 
         if (text) {
 
-            const readingTime = (text.split(" ").length * 0.008);
+            const readingTime = (text.split(" ").filter((element)=>{
+                return element.length!==0
+                            }).length * 0.008);
    
                 setResult("Reading Time Required is approximately " + readingTime + "min.")
                 props.alertHandler("Reading Time Measured Successfully!", "success")
@@ -167,7 +173,6 @@ export default function TextArea(props) {
                 <button type="button" className="btn btn-light mx-3 my-3" onClick={cutTextHandler}>Cut Text</button>
                 <button type="button" className={`btn btn-${props.mode === "light" ? "outline-dark" : "outline-light"}`} onClick={removeExtraSpaceHandler}>Remove Extra Spaces</button>
                 <button type="button" className="btn btn-danger mx-3 my-3" onClick={clearTextHandler}>Clear Text</button>
-
 
 
                 <div className="container my-5">
