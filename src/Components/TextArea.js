@@ -36,9 +36,7 @@ export default function TextArea(props) {
 
     const copyTextHandler = () => {
 
-
-        var copiedText = document.getElementById("exampleFormControlTextarea1")
-        navigator.clipboard.writeText(copiedText.value)
+        navigator.clipboard.writeText(text)
         props.alertHandler("Text Copied Successfully!", "success")
 
 
@@ -48,9 +46,7 @@ export default function TextArea(props) {
 
     const cutTextHandler = () => {
 
-
-        let copiedText = document.getElementById("exampleFormControlTextarea1")
-        navigator.clipboard.writeText(copiedText.value)
+        navigator.clipboard.writeText(text)
         props.alertHandler("Text cut Successful!", "success")
         setText("")
 
