@@ -1,28 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 
 
 export default function Header(props) {
 
+  const [activeModeAbout,setActiveModeAbout] = useState("")
+  const [activeModeHome,setActiveModeHome] = useState("active")
 
+
+const activeModeHandlerHome=()=>{
+  setActiveModeHome("active")
+  setActiveModeAbout("")
+
+}
+
+const activeModeHandlerAbout=()=>{
+  setActiveModeAbout("active")
+  setActiveModeHome("")
+}
   
   return (
     <div>
 
 <nav className={`navbar navbar-expand navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/">{props.title}</Link>
+    <Link className="navbar-brand" to="/" onClick={activeModeHandlerHome}>{props.title}</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/" >Home</Link>
+          <Link className={`nav-link ${activeModeHome}`} aria-current="page" to="/" onClick={activeModeHandlerHome}>Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/about" onClick={()=>{
+          <Link className={`nav-link ${activeModeAbout}`} to="/about" onClick={()=>{
             document.title="TextUtils - About"
+            activeModeHandlerAbout()
           }}>About</Link>
         </li>
         

@@ -121,7 +121,7 @@ export default function TextArea(props) {
 
                 <div className="container">
                     <h3 className={`text-${props.mode === "dark" ? "light" : "dark"} py-2`}>Text Summary</h3>
-                    <p>{text.split(" ").filter((element) => {
+                    <p>{text.split(/\s+/).filter((element) => {
                         return element.length !== 0
                     }).length} Words and {text.split('').filter((word) => {
                         return word !== " "
